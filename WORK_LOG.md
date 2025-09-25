@@ -1,9 +1,9 @@
 Name: YOUR NAME HERE
 
-| Date    |  Time  |                                     Update |
-|:--------|:------:|-------------------------------------------:|
-| April 5 | 9-10pm | I tried to write abstract, efficient code. |
-|         |        |                                            |
+| Date   |     Time      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             Update |
+|:-------|:-------------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| Sep 24 | 11:00-11:55am | I first started by researching and thinking a way other than binary search to approach the problem. I asked Mr. Blick if this was ok, but he suggusted having V1 be completely creatively thought of by me. As a result I went back to what I know and started coding a solution using binary search. I had to do a little research to refresh myself on binary search and I spent the rest of class coding it. Right now I am a bit puzzled on how I compare words alphabetically/in the order of the dictionary. |
+|        |               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 
 To add a new row to the table, click into a cell and then hit shift-enter.
