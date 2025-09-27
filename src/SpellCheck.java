@@ -33,7 +33,6 @@ public class SpellCheck {
                     found = true;
                     break;
                 }
-
                 else if(compare < 0) {
                     low = mid + 1;
                 }
@@ -45,13 +44,6 @@ public class SpellCheck {
                 misspelled.add(word);
             }
         }
-
-        String[] misspelledWords = new String[misspelled.size()];
-        for(int i = 0; i < misspelledWords.length; i++) {
-            misspelledWords[i] = misspelled.get(i);
-        }
-
-
-        return misspelledWords;
+        return misspelled.toArray(new String[misspelled.size()]);
     }
 }
