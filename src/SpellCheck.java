@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  * Spell Check
@@ -22,28 +23,38 @@ public class SpellCheck {
     public String[] checkWords(String[] text, String[] dictionary) {
         // Loop through text
         ArrayList<String> misspelled = new ArrayList<>();
+        HashSet<String> misspelledHash = new HashSet<>();
+        HashSet<String> dict = new HashSet<>();
+        for(String word: dictionary) {
+            dict.add(word);
+        }
         for(String word: text) {
-            int low = 0;
-            int high = dictionary.length - 1;
-            boolean found = false;
-            while (low <= high) {
-                int mid = low + (high - low) / 2;
-                int compare = dictionary[mid].compareTo(word);
-                if (compare == 0) {
-                    found = true;
-                    break;
-                }
-                else if(compare < 0) {
-                    low = mid + 1;
-                }
-                else {
-                    high = mid - 1;
-                }
-            }
-            if(!found && !misspelled.contains(word)) {
+//            int low = 0;
+//            int high = dictionary.length - 1;
+//            boolean found = false;
+//            while (low <= high) {
+//                int mid = low + (high - low) / 2;
+//                int compare = dictionary[mid].compareTo(word);
+//                if (compare == 0) {
+//                    found = true;
+//                    break;
+//                }
+//                else if(compare < 0) {
+//                    low = mid + 1;
+//                }
+//                else {
+//                    high = mid - 1;
+//                }
+//            }
+//            if(!found && !misspelled.contains(word)) {
+//                misspelled.add(word);
+//            }
+            if(!dict.contains(word) && !misspelledHash.contains(word)) {
+                misspelledHash.add(word);
                 misspelled.add(word);
+
             }
         }
-        return misspelled.toArray(new String[misspelled.size()]);
+        return misspelled.toArray(new String[misspelledHash.size()]);
     }
 }
