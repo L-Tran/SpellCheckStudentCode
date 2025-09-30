@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashSet;
 
 /**
  * Spell Check
@@ -21,40 +20,26 @@ public class SpellCheck {
      * @return String[] of all mispelled words in the order they appear in text. No duplicates.
      */
     public String[] checkWords(String[] text, String[] dictionary) {
-        // Loop through text
-        ArrayList<String> misspelled = new ArrayList<>();
-        HashSet<String> misspelledHash = new HashSet<>();
-        HashSet<String> dict = new HashSet<>();
-        for(String word: dictionary) {
-            dict.add(word);
-        }
-        for(String word: text) {
-//            int low = 0;
-//            int high = dictionary.length - 1;
-//            boolean found = false;
-//            while (low <= high) {
-//                int mid = low + (high - low) / 2;
-//                int compare = dictionary[mid].compareTo(word);
-//                if (compare == 0) {
-//                    found = true;
-//                    break;
-//                }
-//                else if(compare < 0) {
-//                    low = mid + 1;
-//                }
-//                else {
-//                    high = mid - 1;
-//                }
-//            }
-//            if(!found && !misspelled.contains(word)) {
-//                misspelled.add(word);
-//            }
-            if(!dict.contains(word) && !misspelledHash.contains(word)) {
-                misspelledHash.add(word);
-                misspelled.add(word);
 
+        // Create a Trie for the dictionary
+        Trie dict = new Trie();
+        // For each word in the dictionary
+        for(String word: dictionary) {
+            // Insert it into the Trie
+            dict.insert(word);
+        }
+        // Create a Trie for the misspelled words
+        Trie misspelledTrie = new Trie();
+        ArrayList<String> misspelled = new ArrayList<>();
+        // For each word in text:
+        for(String word: text) {
+            // If not in dictionary Trie and not in misspelled Trie
+            if(!dict.search(word) && !misspelledTrie.search(word)) {
+                // Add to misspelled Trie
+                misspelledTrie.insert(word);
+                misspelled.add(word);
             }
         }
-        return misspelled.toArray(new String[misspelledHash.size()]);
+        return misspelled.toArray(new String[misspelled.size()]);
     }
 }
