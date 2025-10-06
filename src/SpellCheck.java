@@ -32,12 +32,15 @@ public class SpellCheck {
         Trie misspelledTrie = new Trie();
         ArrayList<String> misspelled = new ArrayList<>();
         // For each word in text:
+        int count = 2;
         for(String word: text) {
             // If not in dictionary Trie and not in misspelled Trie
             if(!dict.search(word) && !misspelledTrie.search(word)) {
                 // Add to misspelled Trie
                 misspelledTrie.insert(word);
                 misspelled.add(word);
+                System.out.println(count + " Misspelled: " + word);
+                count++;
             }
         }
         return misspelled.toArray(new String[misspelled.size()]);
