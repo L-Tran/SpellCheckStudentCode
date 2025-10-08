@@ -5,7 +5,7 @@ public class TrieNode {
 
     // Constructor
     public TrieNode() {
-        // Each node should have the extended acii amount of children for each case
+        // Each node should have the extended Ascii amount of children for each case
         children = new TrieNode[256];
         isWord = false;
     }

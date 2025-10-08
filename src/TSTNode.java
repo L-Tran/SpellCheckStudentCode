@@ -6,17 +6,15 @@ public class TSTNode {
 
     // Constructor
     public TSTNode(char c) {
+        letter = c;
+        // Each node has 3 children for each direction
         children = new TSTNode[3];
         isWord = false;
-        letter = c;
     }
 
+    // Getters & Setters
     public TSTNode[] getChildren() {
         return children;
-    }
-
-    public void setWord(boolean bool) {
-        isWord = bool;
     }
 
     public boolean isWord() {
@@ -25,5 +23,9 @@ public class TSTNode {
 
     public char getLetter() {
         return letter;
+    }
+
+    public void setWord(boolean bool) {
+        isWord = bool;
     }
 }
