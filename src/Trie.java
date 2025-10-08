@@ -1,6 +1,6 @@
 public class Trie {
     // Instance variables
-    private TrieNode root;
+    private final TrieNode root;
 
     // Constructor
     public Trie() {
@@ -10,38 +10,22 @@ public class Trie {
     // Insert word
     public void insert(String word) {
         TrieNode current = root;
+        int index;
         for(char c: word.toCharArray()) {
-            int index;
-            if(c == '\'') {
-                index = 26;
-            }
-            else if (c >= 'a' && c <= 'z') {
-                index = c - 'a';
-            }
-            else {
-                continue;
-            }
+            index = c;
             if(current.getChildren()[index] == null) {
                 current.getChildren()[index] = new TrieNode();
             }
             current = current.getChildren()[index];
         }
-        current.setWord(true);
+        current.isWord(true);
     }
     // Search for word
     public boolean search(String word) {
         TrieNode current = root;
+        int index;
         for(char c: word.toCharArray()) {
-            int index;
-            if(c == '\'') {
-                index = 26;
-            }
-            else if (c >= 'a' && c <= 'z') {
-                index = c - 'a';
-            }
-            else {
-                return false;
-            }
+            index = c;
             if(current.getChildren()[index] == null) {
                 return false;
             }

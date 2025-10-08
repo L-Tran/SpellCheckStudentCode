@@ -5,19 +5,21 @@ public class TrieNode {
 
     // Constructor
     public TrieNode() {
-        children = new TrieNode[27];
+        // Each node should have the extended acii amount of children for each case
+        children = new TrieNode[256];
         isWord = false;
     }
 
+    // Getters and setters
     public TrieNode[] getChildren() {
         return children;
     }
 
-    public void setWord(boolean word) {
-        isWord = word;
-    }
-
     public boolean isWord() {
         return isWord;
+    }
+
+    public void isWord(boolean word) {
+        isWord = word;
     }
 }
